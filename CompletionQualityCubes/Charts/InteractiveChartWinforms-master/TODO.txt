@@ -1,0 +1,13 @@
+
+Add transparency to filled areas 
+
+Move series up/down in the list so we decide which ones are on top of the drawing canvas 
+
+Add controls to move the legend manually or place it in specific locaions as in Petrel 
+
+Add annotations ? 
+
+Export as png for papers (high resolution)
+
+Load schema of fonts, colors, etc. Bea ble to save a chart and retrieve it. 
+One schema for SPE, one schema for other journals,....user defined schemas. 

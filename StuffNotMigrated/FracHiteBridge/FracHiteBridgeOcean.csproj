@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemDefinitionGroup>
+    <Reference>
+      <Private>False</Private>
+    </Reference>
+  </ItemDefinitionGroup>
+  <PropertyGroup>
+    <!--ProjectType:Plugin-->
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7A22EEB6-8344-4FF3-8656-5E536242563F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FracHiteBridge</RootNamespace>
+    <AssemblyName>FracHiteBridge</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Slb.Ocean.Basics">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Basics.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Catalogs">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Catalogs.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Coordinates">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Coordinates.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Core">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Core.ReferenceImpl">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Core.ReferenceImpl.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Data">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Geometry">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Configuration">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Data.Persistence">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.Data.Persistence.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.DomainObject.FrameworkModeling">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.DomainObject.FrameworkModeling.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.DomainObjectExtensions">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.DomainObjectExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.DomainObjectExtensions.Prestack">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.DomainObjectExtensions.Prestack.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Drilling">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.Drilling.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Geology">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.Geology.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Intersect">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.Intersect.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Microseismic">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.Microseismic.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Modeling">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.Modeling.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Polygon">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.Polygon.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Production">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.Production.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.ReservoirEngineering">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.ReservoirEngineering.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Resources">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.Resources.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Seismic">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.Seismic.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Simulation.EclipseKeywords">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.Simulation.EclipseKeywords.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.StructuralGeology">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.StructuralGeology.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Testing">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.Testing.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.UI.Controls">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.UI.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.UI.Visualization3D">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.UI.Visualization3D.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.UI.WellSection">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.UI.WellSection.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.UI.Wpf.Controls">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.UI.Wpf.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Well">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.Well.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Well.Treatment">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.Well.Treatment.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Studio.Find">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Studio.Find.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Studio.Find.Index">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Studio.Find.Index.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Studio.Find.Petrel">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Studio.Find.Petrel.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Studio.Knowledge.Petrel">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Studio.Knowledge.Petrel.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Trajectory">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Trajectory.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Units">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Units.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Units.ReferenceCatalog">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Units.ReferenceCatalog.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Units.ReferenceImpl">
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Units.ReferenceImpl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FracHiteBridgePlugin.cs" />
+    <Compile Include="FracHiteBridgeModule.cs" />
+    <Compile Include="FracHiteDataExporterProcess.cs" />
+    <Compile Include="FractHiteResultsProcess.cs" />
+    <Compile Include="Views\FractHiteResultsProcessUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\FractHiteResultsProcessUI.Designer.cs">
+      <DependentUpon>FractHiteResultsProcessUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FracHiteDataExporterProcessUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\FracHiteDataExporterProcessUI.Designer.cs">
+      <DependentUpon>FracHiteDataExporterProcessUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\WinformsControls\ChartControl\ChartControls\ChartControls.csproj">
+      <Project>{793022e5-6ab6-4c78-9436-9fcb89c14ded}</Project>
+      <Name>ChartControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WinformsControls\ChartControl\ChartControl\ChartInteractions.csproj">
+      <Project>{ad1a0027-69c5-4c5c-b5d9-4c749131b9e9}</Project>
+      <Name>ChartInteractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BasicTypes\BasicTypes\BasicTypes.csproj">
+      <Project>{8d9574c4-9dd7-4d1f-a634-f0d885367616}</Project>
+      <Name>BasicTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrachiteData.cs\FrachiteDataCommon.csproj">
+      <Project>{DFB2CE7C-2267-4719-B9CF-863A9D080E96}</Project>
+      <Name>FrachiteDataCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OceanControls\OceanControls.csproj">
+      <Project>{ed2b8c9f-cb97-4029-8dbe-3b42d9e57eb2}</Project>
+      <Name>OceanControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OceanTools\ProjectTools\ProjectTools\ProjectTools.csproj">
+      <Project>{7dbf85dd-5287-4696-bb3c-9a2fa97145c1}</Project>
+      <Name>ProjectTools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\FracHiteDataExporterProcessUI.resx">
+      <DependentUpon>FracHiteDataExporterProcessUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FractHiteResultsProcessUI.resx">
+      <DependentUpon>FractHiteResultsProcessUI.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controller\" />
+    <Folder Include="Model\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>del "$(ProjectDir)\plugin.xml"
+"%25Ocean2020Home%25\PluginPackager.exe" /g "$(TargetPath)" "$(ProjectDir)\plugin.xml" "%25OCEAN2020HOME_x64%25\petrel.exe"
+"%25Ocean2020Home%25\PluginPackager.exe" /m "$(ProjectDir)\plugin.xml" "%25OCEAN2020HOME_x64%25\petrel.exe" "$(TargetDir)"
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+		Other similar extension points exist, see Microsoft.Common.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

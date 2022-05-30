@@ -1,0 +1,8 @@
+﻿
+Known Issues
+
+RazorFracture depends on Point3 
+Remove this dependency on Ocean 
+
+The gid pillars need to be straight and vertical or pseudo-vertical. 
+How to do here ? 

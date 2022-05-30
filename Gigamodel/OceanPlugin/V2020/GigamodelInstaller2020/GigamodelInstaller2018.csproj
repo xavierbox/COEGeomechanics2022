@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--ProjectType:PIPBuilder-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6D996ABE-3D0C-4214-9236-CFE11B50303A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GigamodelInstaller2018</RootNamespace>
+    <AssemblyName>GigamodelInstaller2018</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="Readme.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Target Name="Build">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PreBuildEvent)" />
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" />
+  </Target>
+  <Target Name="Rebuild">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PreBuildEvent)" />
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+      rmdir "$(ProjectDir)\obj\copytemp" /s /q
+      "$(ProjectDir)\DeployCopier.exe" "$(ProjectDir)DeployList.xml" "$(ProjectDir)\obj\copytemp" /config:$(ConfigurationName) /platform:"$(PlatformName)"</PreBuildEvent>
+    <PostBuildEvent>"%25Ocean2018Home%25\PluginPackager.exe" /p "$(ProjectDir)\obj\copytemp\GigamodelPlugin.dll" "$(TargetDir)$(TargetName).pip" "%25Ocean2018Home%25\petrel.exe" </PostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DeployCopier.exe" />
+    <Content Include="DeployList.xml" />
+  </ItemGroup>
+</Project>

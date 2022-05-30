@@ -1,0 +1,218 @@
+    //private bool ParseFrachiteOutputfile(string name, out Dictionary<string, List<float>> data)
+    //{
+
+    //  data = new Dictionary<string, List<float>>();
+    //  //data.Clear();
+
+    //  //read headers, this is the line just before a line that hass all numbers, wee look for the keyword PRESSURE.
+    //  using (System.IO.StreamReader file = new System.IO.StreamReader(name))
+    //  {
+    //    int count = 0;
+    //    string line = file.ReadLine();
+    //    while ((count < 10) && (!string.IsNullOrEmpty(line)) && (!line.ToLower().Contains("pressure")))
+    //    {
+    //      line = file.ReadLine();
+    //    }
+
+
+    //    if (count >= 10 || string.IsNullOrEmpty(line)) return false; //no headers found
+
+    //    Regex trimmer = new Regex(@"\s\s+");
+    //    char[] spkittes = new char[] { ' ', '\t' };
+    //    string[] keywords = trimmer.Replace(line.Trim(), " ").Split(spkittes, StringSplitOptions.RemoveEmptyEntries);
+
+    //    foreach (string s in keywords)
+    //      data.Add(s, new List<float>());
+
+
+    //    line = file.ReadLine();
+    //    while (!string.IsNullOrEmpty(line))
+    //    {
+    //      line = line.Trim();
+    //      string[] values = trimmer.Replace(line, " ").Split(spkittes, StringSplitOptions.RemoveEmptyEntries);
+    //      for (int i = 0; i < values.Length; i++)
+    //      {
+    //        float.TryParse(values[i], out float result);
+    //        data[keywords[i]].Add(result);
+    //      }
+    //        ;
+    //      line = file.ReadLine().Trim();
+    //    }
+
+    //    file.Close();
+    //  }
+
+
+    //  return true;
+
+    //}
+
+
+
+
+    //      bool success = 
+    //    Errors.Add($"Unable to generate input files for cell  { cell.ToString() }");
+    //  }
+    //  else if (!RunFrachiteForInput(frachiteInputFile))
+    //  {
+    //    Errors.Add($"Unable to run simulation for cell {cell.ToString()}");
+    //  }
+    //  else if (!ParseFrachiteOutputfile(resultsFile, out Dictionary<string, List<float>> data))
+    //  {
+    //    Errors.Add($"Unable to parse results file {resultsFile}  for cell {cell.ToString()}");
+    //  }
+    //  else
+    //  {
+    //    var i3 = GetCellIndices(cell);
+
+
+    //    FrachiteFileResults item = new FrachiteFileResults();
+    //    item.FromResultsFile( resultsFile );
+    //    LastResults.Add(item);
+
+    //    //delete files but leave some as an example and for debugging.
+    //    if ((cellsToRun >= 100) && (rnd.Next(0, 100) > 2))
+    //    DeleteAssociatedFiles(Folder, Path.GetFileNameWithoutExtension(frachiteInputFile));
+    //  }
+    //}
+    //private bool GenerateInputforCellOLD(int cell, string name, out Dictionary<int, float[]> requestDepthFlags)
+    //{
+    //  int nCells = BinaryData.NumCells;
+    //  int[] indices = GetCellIndices(cell);
+    //  int ko = indices[2];
+
+    //  Dictionary<string, float[]> arrays = BinaryData.Arrays;
+    //  int Nx = BinaryData.Nx, Ny = BinaryData.Ny, Nz = BinaryData.Nz;
+
+
+    //  using (StreamWriter writer = File.CreateText(name))
+    //  {
+    //    //we will also generate a field of reservoir flag vs depth. It will be stored here. #
+
+
+    //    //write the header
+    //    //InternalOptions 
+    //    string description = "  Max pressure allowed(Pa). Max upward height growth(m). Max downward height growth(m). 0 = Equil.height,1 = modulus layer. 0 = non - hydrostatic,1 = hydrostatic.Fluid density(kg / m ^ 3)";
+    //    writer.WriteLine(InternalOptions.MaximumPressure * 1.0f + " " + InternalOptions.MaximumHeightGrowthUpwards + " " + InternalOptions.MaximumHeightGrowthDownwards + " " + InternalOptions.Convergency + " " + InternalOptions.Hydrostatic + " " + InternalOptions.FluidDensity + "  " + description);
+
+    //    //number of layers 
+    //    int minKLayer = Math.Max(1, ko - 100); //start layer is layer  k =1 or below 
+    //    int maxKLayer = Math.Min(BinaryData.Nz - 2, ko + 100); //end layer is layer not greeater than the number of layers in the grid 
+    //    int totalLayers = maxKLayer - minKLayer;
+    //    description = "  Number of layers in stress profile (max is 200), starting with deepest layer";
+    //    writer.WriteLine(totalLayers.ToString() + description);
+
+    //    //perforation 
+    //    description = "   Top & bottom TVD(m) of start(i.e.perforated) fracture layer";
+    //    float perforationTopTVD = arrays["TVDTOP"][cell];
+    //    float perforationBottomTVD = arrays["TVDBOTTOM"][cell];
+    //    writer.WriteLine(perforationTopTVD.ToString() + "  " + perforationBottomTVD.ToString() + description);
+
+    //    //data lines 
+    //    description = @"TVD of layer top(m). K1c(Pa.m ^ 0.5).  Stress(Pa).  Young's modulus(Pa). Poisson_ratio";
+
+    //    for (int k = maxKLayer; k > minKLayer; k--)
+    //    {
+    //      //ii + jj * NumElementsIJK.I + kk * (NumElementsIJ);
+    //      int c = indices[0] + indices[1] * Nx + k * (Nx * Ny);
+
+    //      //"TVDTOP", "TVDBOTTOM", "TOUGHNESS", "SHMIN", "YOUNGMOD", "POISSONR", "RESERVOIRFLAG", "FRACHITEFLAG" };
+    //      string values = arrays["TVDTOP"][c] + "  " + arrays["TOUGHNESS"][c] + "  " + arrays["SHMIN"][c] + "  " + arrays["YOUNGMOD"][c] + "  " + arrays["POISSONR"][c] + "  " + arrays["RESERVOIRFLAG"][c];
+    //      writer.WriteLine(values + "  " + description);
+
+    //      //int flag = (int)(arrays["RESERVOIRFLAG"][c]);
+
+    //      ////add them all, later we will figure out the max and min per flag 
+    //      //if (!tempReservoirFlagDepths.Keys.Contains(flag))
+    //      //tempReservoirFlagDepths.Add(flag, new List<float>());
+    //      //tempReservoirFlagDepths[flag].Add(arrays["TVDTOP"][c]);
+    //    }
+
+    //    //foreach flag, weill get 2 floats, max and min depth 
+    //    Dictionary<int, List<float>> tempReservoirFlagDepths = new Dictionary<int, List<float>>();
+    //    requestDepthFlags = new Dictionary<int, float[]>();
+
+    //    //for (int k = maxKLayer; k > minKLayer; k--)
+    //    for (int k = minKLayer + 1; k <= maxKLayer; k++)
+    //    {
+    //      int c = indices[0] + indices[1] * Nx + k * (Nx * Ny);
+    //      int flag = (int)(arrays["RESERVOIRFLAG"][c]);
+
+    //      //add them all, later we will figure out the max and min per flag 
+    //      if (!tempReservoirFlagDepths.Keys.Contains(flag))
+    //        tempReservoirFlagDepths.Add(flag, new List<float>());
+    //      tempReservoirFlagDepths[flag].Add(arrays["TVDTOP"][c]);
+    //    }
+
+    //    foreach (var key in tempReservoirFlagDepths.Keys)
+    //    {
+    //      var vals = tempReservoirFlagDepths[key];
+    //      requestDepthFlags.Add(key, new float[] { vals.Min(), vals.Max() });
+    //    }
+
+
+    //    writer.Close();
+
+    //  }
+
+    //  return true;
+    //}
+
+
+	    //public bool RunSimulationOLD(string id = "1")
+    //{
+    //  if (!CanRun) return false;
+
+    //  var flag = BinaryData.GetArray("FRACHITEFLAG");
+    //  var indices = Enumerable.Range(0, BinaryData.NumCells).Where(i => flag[i] >= 0.9999);
+    //  int cellsTorun = indices.Count();
+    //  Random rnd = new Random(11230759);
+
+    //  LastResults = new List<FrachiteFileResults>();
+    //  Errors = new List<string>();
+
+
+    //  for (int i = 0; i < cellsTorun; i++)
+    //  {
+    //    int cell = indices.ElementAt(i);
+    //    string frachiteInputFile = Path.Combine(Folder, ModelName + "Cell" + cell.ToString() + "Batch" + id + ".dat");
+    //    string resultsFile = Path.Combine(Folder, Path.GetFileNameWithoutExtension(frachiteInputFile) + ".dbg");
+
+    //    //Dictionary<int, float[]> reservoirFlagsDepth = new Dictionary<int, float[]>();
+    //    if (!GenerateInputforCell(cell, frachiteInputFile, out Dictionary<int, float[]> reservoirFlagsDepth))
+    //    {
+    //      Errors.Add($"Unable to generate input files for cell  { cell.ToString() }");
+    //    }
+    //    else if (!RunFrachiteForInput(frachiteInputFile))
+    //    {
+    //      Errors.Add($"Unable to run simulation for cell {cell.ToString()}");
+    //    }
+    //    else if (!ParseFrachiteOutputfile(resultsFile, out Dictionary<string, List<float>> data))
+    //    {
+    //      Errors.Add($"Unable to parse results file {resultsFile}  for cell {cell.ToString()}");
+    //    }
+    //    else
+    //    {
+    //      var i3 = GetCellIndices(cell);
+    //      FrachiteFileResults item = new FrachiteFileResults()
+    //      {
+    //        Arrays = data,
+    //        CellIndex = cell,
+    //        Indices = new FrachiteFileResults.Index3(i3),
+    //        PerforationTop = BinaryData.Arrays["TVDTOP"][cell],
+    //        PerforationBottom = BinaryData.Arrays["TVDBOTTOM"][cell],
+
+    //        ModelName = ModelName,
+    //        ReservoirDepths = reservoirFlagsDepth
+    //      };
+
+    //      LastResults.Add(item);
+
+    //      //delete files but leave some as an example and for debugging.
+    //      if ((cellsTorun >= 100) && (rnd.Next(0, 100) > 2))
+    //        DeleteAssociatedFiles(Folder, Path.GetFileNameWithoutExtension(frachiteInputFile));
+    //    }
+    //  }
+
+    //  return true;
+    //}//run simmulation

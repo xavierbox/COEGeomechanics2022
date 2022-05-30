@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemDefinitionGroup>
+    <Reference>
+      <Private>False</Private>
+    </Reference>
+  </ItemDefinitionGroup>
+  <PropertyGroup>
+    <!--ProjectType:Plugin-->
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8119777C-90C5-4C1D-9509-8809D2AE047D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gigamodel</RootNamespace>
+    <AssemblyName>GigamodelPlugin</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Slb.Ocean.Basics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14ef4a483ef6a64b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2017\Public\Slb.Ocean.Basics.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14ef4a483ef6a64b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2017\Public\Slb.Ocean.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Data">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Schlumberger\Petrel 2017\Public\Slb.Ocean.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Geometry, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14ef4a483ef6a64b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2017\Public\Slb.Ocean.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel, Version=17.3.0.0, Culture=neutral, PublicKeyToken=14ef4a483ef6a64b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2017\Public\Slb.Ocean.Petrel.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Configuration, Version=17.2.0.0, Culture=neutral, PublicKeyToken=d42cec326f61051f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2017\Public\Slb.Ocean.Petrel.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.DomainObjectExtensions, Version=17.3.0.0, Culture=neutral, PublicKeyToken=14ef4a483ef6a64b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2017\Public\Slb.Ocean.Petrel.DomainObjectExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Modeling, Version=17.3.0.0, Culture=neutral, PublicKeyToken=14ef4a483ef6a64b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2017\Public\Slb.Ocean.Petrel.Modeling.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Seismic, Version=17.3.0.0, Culture=neutral, PublicKeyToken=14ef4a483ef6a64b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2017\Public\Slb.Ocean.Petrel.Seismic.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.UI.Controls, Version=17.2.0.0, Culture=neutral, PublicKeyToken=da9605198f529641, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Schlumberger\Petrel 2017\Public\Slb.Ocean.Petrel.UI.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Well, Version=17.3.0.0, Culture=neutral, PublicKeyToken=14ef4a483ef6a64b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2017\Public\Slb.Ocean.Petrel.Well.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Units">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Schlumberger\Petrel 2017\Public\Slb.Ocean.Units.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Deployment" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BoundaryConditionsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BoundaryConditionsControl.Designer.cs">
+      <DependentUpon>BoundaryConditionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ModelCreateDestroySvc.cs" />
+    <Compile Include="DatumDropTarget.cs">
+      <SubType>UserControl</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="DatumDropTarget.Designer.cs">
+      <DependentUpon>DatumDropTarget.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="GigaModelData\SeismicCubeFaccade.cs" />
+    <Compile Include="GigaModelData\SplitLargeArrays.cs" />
+    <Compile Include="Controllers\ExportSimulationController.cs" />
+    <Compile Include="GigaModelDomainObject.cs" />
+    <Compile Include="GigaModelProcess\GigaModelProcess.cs" />
+    <Compile Include="GigaModelProcess\GigaModelProcessUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GigaModelProcess\GigaModelProcessUI.Designer.cs">
+      <DependentUpon>GigaModelProcessUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GigaModelPlugin.cs" />
+    <Compile Include="GigaModelModule.cs" />
+    <Compile Include="Controllers\ImportResultsController.cs" />
+    <Compile Include="Controllers\InputValidationController.cs" />
+    <Compile Include="GigaModelData\GigaModelData.cs" />
+    <Compile Include="GigaModelData\GigaModelDataDefinitions.cs" />
+    <Compile Include="CommonlyUsedEventArgs.cs" />
+    <Compile Include="ImportResultsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ImportResultsControl.Designer.cs">
+      <DependentUpon>ImportResultsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialsModelsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MaterialsModelsControl.Designer.cs">
+      <DependentUpon>MaterialsModelsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewEditSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewEditSelector.Designer.cs">
+      <DependentUpon>NewEditSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OceanUtils\BoreholeUtils.cs" />
+    <Compile Include="GigaModelData\Utils.cs" />
+    <Compile Include="PressureModelsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PressureModelsControl.Designer.cs">
+      <DependentUpon>PressureModelsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\MessageUtils.cs" />
+    <Compile Include="OceanUtils\PetrelProjectUtils.cs" />
+    <Compile Include="OceanUtils\SeismicCubesUtils.cs" />
+    <Compile Include="OceanUtils\TemplateUtils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SimulationsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SimulationsControl.Designer.cs">
+      <DependentUpon>SimulationsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisageUtils\EclipseFilesParser.cs" />
+    <Compile Include="VisageUtils\MII.cs" />
+    <Compile Include="VisageUtils\VisageOceanSeismicDeckWritter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BoundaryConditionsControl.resx">
+      <DependentUpon>BoundaryConditionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatumDropTarget.resx">
+      <DependentUpon>DatumDropTarget.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GigaModelProcess\GigaModelProcessUI.resx">
+      <DependentUpon>GigaModelProcessUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportResultsControl.resx">
+      <DependentUpon>ImportResultsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaterialsModelsControl.resx">
+      <DependentUpon>MaterialsModelsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewEditSelector.resx">
+      <DependentUpon>NewEditSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PressureModelsControl.resx">
+      <DependentUpon>PressureModelsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SimulationsControl.resx">
+      <DependentUpon>SimulationsControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FolderOpen_32x32_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StyleMicrosoft.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_DownArrowShort_Blue_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GigaModelData\GridDimensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueCloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueCloud1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueCloud2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_icon-132-cloud_314247.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OffshoreDatum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OnshoreDatum.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>del "$(ProjectDir)\plugin.xml"
+"%25Ocean2017Home%25\PluginPackager.exe" /g "$(TargetPath)" "$(ProjectDir)\plugin.xml" "%25OCEAN2017HOME_x64%25\petrel.exe"
+"%25Ocean2017Home%25\PluginPackager.exe" /m "$(ProjectDir)\plugin.xml" "%25OCEAN2017HOME_x64%25\petrel.exe" "$(TargetDir)"
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+		Other similar extension points exist, see Microsoft.Common.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

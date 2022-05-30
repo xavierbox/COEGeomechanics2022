@@ -1,0 +1,67 @@
+﻿
+        public void MapFractureDataInGrid(FractureModel data)
+        {
+            Grid g = (Grid)(gridPresentationBox.Tag);
+            if ((g == null) || (g == Grid.NullObject))
+                return;
+
+            var f = data.Fractures;
+            //var types = f.Select(w => w.Type);
+
+            //how many fracture types are known?  this is in the enumeration 
+            //lets convert the enum in a dictionary <type=int, string = f type> 
+            //var names = Enum.GetNames(typeof(FractureType));//.GetNames
+            //Dictionary<int, string> typesNames = new Dictionary<int, string>();
+
+            PropertyCollection col = ProjectTools.GetOrCreatePropertyCollection(g, modelNamePresentationBox.Text);
+            var enumList = Enum.GetValues(typeof(FractureType));
+            foreach (FractureType val in enumList)
+            {
+                string name = val.ToString();
+                int intVal = (int)(val);
+
+                var theseFracs = f.Where(t => (int)(t.Type) == (int)(val));
+
+                //create grid properties dip/ dipAzimuth/ intensity 
+                var dip = ProjectTools.GetOrCreateProperty(col, "Dip" + name, PetrelProject.WellKnownTemplates.GeometricalGroup.DipAngle);
+                var dipAzimuth = ProjectTools.GetOrCreateProperty(col, "Dip Azimuth" + name, PetrelProject.WellKnownTemplates.GeometricalGroup.DipAngle);
+                var intensity = ProjectTools.GetOrCreateProperty(col, "Intensity" + name, PetrelProject.WellKnownTemplates.MiscellaneousGroup.General);
+
+                List<float> dips = Enumerable.Repeat(0.0f, g.NumCellsIJK.I * g.NumCellsIJK.J * g.NumCellsIJK.K).ToList();
+                List<float> dipAzimuths = Enumerable.Repeat(0.0f, g.NumCellsIJK.I * g.NumCellsIJK.J * g.NumCellsIJK.K).ToList();
+                List<float> intensities = Enumerable.Repeat(0.0f, g.NumCellsIJK.I * g.NumCellsIJK.J * g.NumCellsIJK.K).ToList();
+                List<int> count = Enumerable.Repeat(0, g.NumCellsIJK.I * g.NumCellsIJK.J * g.NumCellsIJK.K).ToList();
+
+
+
+                foreach (Fracture frac in theseFracs)
+                {
+                    CommonData.Vector3 location = frac.Location;
+
+
+                    Index3 index = g.GetCellAtPoint(new Point3(location.X, location.Y, location.Z));
+                    int nCell = index.I + g.NumCellsIJK.I * index.J + index.K * (g.NumCellsIJK.I * g.NumCellsIJK.J);
+                    dips[nCell] += (float)frac.Orientation.Dip;
+                    dipAzimuths[nCell] += (float)frac.Orientation.DipAzimuth;
+                    intensities[nCell] += (float)(frac.Intensity);
+                    count[nCell] += 1;
+                }
+
+                for (int i = 0; i < count.Count; i++) if (count[i] == 0) count[i] = 1;
+
+                List<float> div = Enumerable.Range(0, dips.Count).Select(i => dips[i] / count[i]).ToList();
+                ProjectTools.SetValues(dip, div);
+
+                div = Enumerable.Range(0, dipAzimuths.Count).Select(i => dipAzimuths[i] / count[i]).ToList();
+                ProjectTools.SetValues(dipAzimuth, div);
+
+                div = Enumerable.Range(0, intensities.Count).Select(i => intensities[i] / count[i]).ToList();
+                ProjectTools.SetValues(intensity, div);
+
+
+            }
+
+
+
+
+        }

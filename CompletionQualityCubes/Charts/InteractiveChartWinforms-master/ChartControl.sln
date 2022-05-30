@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartInteractions", "ChartControl\ChartInteractions.csproj", "{AD1A0027-69C5-4C5C-B5D9-4C749131B9E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestChartControl", "TestChartControl\TestChartControl.csproj", "{9B8BE43A-EC90-4EE6-8DE7-53A1A1431864}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartControls", "ChartControls\ChartControls.csproj", "{793022E5-6AB6-4C78-9436-9FCB89C14DED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD1A0027-69C5-4C5C-B5D9-4C749131B9E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD1A0027-69C5-4C5C-B5D9-4C749131B9E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD1A0027-69C5-4C5C-B5D9-4C749131B9E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD1A0027-69C5-4C5C-B5D9-4C749131B9E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B8BE43A-EC90-4EE6-8DE7-53A1A1431864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B8BE43A-EC90-4EE6-8DE7-53A1A1431864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B8BE43A-EC90-4EE6-8DE7-53A1A1431864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B8BE43A-EC90-4EE6-8DE7-53A1A1431864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{793022E5-6AB6-4C78-9436-9FCB89C14DED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{793022E5-6AB6-4C78-9436-9FCB89C14DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{793022E5-6AB6-4C78-9436-9FCB89C14DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{793022E5-6AB6-4C78-9436-9FCB89C14DED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {685DE584-FE9C-4A0C-80D2-336E7E7A8292}
+	EndGlobalSection
+EndGlobal

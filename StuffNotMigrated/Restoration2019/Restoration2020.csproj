@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemDefinitionGroup>
+    <Reference>
+      <Private>False</Private>
+    </Reference>
+  </ItemDefinitionGroup>
+  <PropertyGroup>
+    <!--ProjectType:Plugin-->
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CD762813-5ADD-47BF-A8B7-C04AF1CCA9EF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Restoration</RootNamespace>
+    <AssemblyName>Restoration2020</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Slb.Ocean.Basics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14ef4a483ef6a64b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Basics.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14ef4a483ef6a64b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14ef4a483ef6a64b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Geometry, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14ef4a483ef6a64b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel, Version=19.3.0.0, Culture=neutral, PublicKeyToken=14ef4a483ef6a64b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.DomainObjectExtensions, Version=20.4.0.0, Culture=neutral, PublicKeyToken=14ef4a483ef6a64b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.DomainObjectExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Modeling, Version=20.6.0.0, Culture=neutral, PublicKeyToken=14ef4a483ef6a64b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.Modeling.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.StructuralGeology, Version=20.4.0.0, Culture=neutral, PublicKeyToken=14ef4a483ef6a64b, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.StructuralGeology.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.UI.Controls, Version=19.3.0.0, Culture=neutral, PublicKeyToken=da9605198f529641, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.UI.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Slb.Ocean.Petrel.Well, Version=20.6.0.0, Culture=neutral, PublicKeyToken=14ef4a483ef6a64b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Schlumberger\Petrel 2020\Public\Slb.Ocean.Petrel.Well.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DynelImportExport\Controllers\DynelParser.cs" />
+    <Compile Include="DynelImportExport\Controllers\FracturePrediction.cs" />
+    <Compile Include="DynelImportExport\Controllers\FracturePredictionController.cs" />
+    <Compile Include="GFM\Controller\GFMController.cs" />
+    <Compile Include="DynelImportExport\Controllers\MathHelper.cs" />
+    <Compile Include="DRestorationProcess.cs" />
+    <Compile Include="DRestorationProcessUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DRestorationProcessUI.Designer.cs">
+      <DependentUpon>DRestorationProcessUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DynelImportExport\Events\EventClasses.cs" />
+    <Compile Include="DynelImportExport\ExportGeometryToDynel.cs" />
+    <Compile Include="DynelImportExport\View\ExportGeometryToDynelUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DynelImportExport\View\ExportGeometryToDynelUI.Designer.cs">
+      <DependentUpon>ExportGeometryToDynelUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GFM\CommonEvents\CommonEventArgs.cs" />
+    <Compile Include="GFM\GFMPostProcess.cs" />
+    <Compile Include="GFM\Model\SimulationResults1D.cs" />
+    <Compile Include="GFM\View\GFMPostProcessUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GFM\View\GFMPostProcessUI.Designer.cs">
+      <DependentUpon>GFMPostProcessUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GFM\Model\Boundary.cs" />
+    <Compile Include="GFM\Services\Serializer.cs" />
+    <Compile Include="GFM\View\Dialogs\AddGeologicalStepDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GFM\View\Dialogs\AddGeologicalStepDialog.Designer.cs">
+      <DependentUpon>AddGeologicalStepDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GFM\Controller\ExportDeck.cs" />
+    <Compile Include="GFM\Model\GFMDataDefinitions.cs" />
+    <Compile Include="GFM\GFMGeometry.cs" />
+    <Compile Include="GFM\View\GFMGeometryUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GFM\View\GFMGeometryUI.Designer.cs">
+      <DependentUpon>GFMGeometryUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GFM\Model\LithoData.cs" />
+    <Compile Include="DynelImportExport\ImportPointStress.cs" />
+    <Compile Include="DynelImportExport\View\ImportPointStressUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DynelImportExport\View\ImportPointStressUI.Designer.cs">
+      <DependentUpon>ImportPointStressUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DynelImportExport\Model\Fracture.cs" />
+    <Compile Include="DynelImportExport\Model\Orientation.cs" />
+    <Compile Include="GFM\View\LithoTableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GFM\View\LithoTableControl.Designer.cs">
+      <DependentUpon>LithoTableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GFM\View\Simulation1DProcessingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GFM\View\Simulation1DProcessingControl.Designer.cs">
+      <DependentUpon>Simulation1DProcessingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GFM\View\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GFM\View\UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OceanUtils\EventClasses.cs" />
+    <Compile Include="OceanUtils\Miscellaneous.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RestorationModule.cs" />
+    <Compile Include="RestorationPlugin.cs" />
+    <Compile Include="DynelImportExport\Services\MessageService.cs" />
+    <Compile Include="DynelImportExport\Services\OceanObjectsValidation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferences.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DRestorationProcessUI.resx">
+      <DependentUpon>DRestorationProcessUI.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DynelImportExport\View\ExportGeometryToDynelUI.resx">
+      <DependentUpon>ExportGeometryToDynelUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GFM\View\Dialogs\AddGeologicalStepDialog.resx">
+      <DependentUpon>AddGeologicalStepDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GFM\View\GFMGeometryUI.resx">
+      <DependentUpon>GFMGeometryUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DynelImportExport\View\ImportPointStressUI.resx">
+      <DependentUpon>ImportPointStressUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GFM\View\GFMPostProcessUI.resx">
+      <DependentUpon>GFMPostProcessUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GFM\View\LithoTableControl.resx">
+      <DependentUpon>LithoTableControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GFM\View\Simulation1DProcessingControl.resx">
+      <DependentUpon>Simulation1DProcessingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GFM\View\UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TectonicsFractured.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Axes1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RightArrowShort_Blue_16x16_72.png" />
+    <None Include="Resources\112_LeftArrowShort_Blue_16x16_72.png" />
+    <Content Include="TextFile1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OceanTools\ProjectTools\ProjectTools\ProjectTools.csproj">
+      <Project>{7dbf85dd-5287-4696-bb3c-9a2fa97145c1}</Project>
+      <Name>ProjectTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="BasicTypes\BasicTypes\BasicTypes.csproj">
+      <Project>{8d9574c4-9dd7-4d1f-a634-f0d885367616}</Project>
+      <Name>BasicTypes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+		Other similar extension points exist, see Microsoft.Common.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>
